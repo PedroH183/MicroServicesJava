@@ -1,0 +1,1 @@
+alter table shop rename column created_at to date;

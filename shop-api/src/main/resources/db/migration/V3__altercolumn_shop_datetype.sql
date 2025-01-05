@@ -1,0 +1,1 @@
+alter table shop alter column date type timestamp using date::TIMESTAMP;

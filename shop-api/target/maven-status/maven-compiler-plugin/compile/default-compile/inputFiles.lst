@@ -1,0 +1,8 @@
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/domain/shop/Shop.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/domain/Item/ItemDTO.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/controllers/ShopControllers.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/domain/Item/Item.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/services/ShopService.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/repositories/ShopRepository.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/domain/shop/ShopDTO.java
+/home/peterhenrique/gitProjects/KufundaProject/shop-api/src/main/java/com/pedrofreires/KufundaProject/App.java
