@@ -1,8 +1,8 @@
 package com.pedrofreires.KufundaProject.domain.shop;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.pedrofreires.KufundaProject.domain.Item.ItemDTO;
 import javax.validation.constraints.NotBlank;
@@ -20,13 +20,19 @@ public class ShopDTO {
     private String userIdentifier;
 
     @NotNull
-    private List<ItemDTO> itemsDto;
+    private List<ItemDTO> items;
 
     public static ShopDTO convert(Shop shop){
         ShopDTO shopDTO = new ShopDTO();
         shopDTO.setCreated_at(shop.getCreated_at());
         shopDTO.setTotal(shop.getTotal());
         shopDTO.setUserIdentifier(shop.getUserIdentifier());
+        shopDTO.setItems(shop
+                            .getItems()
+                            .stream()
+                            .map(ItemDTO::convert)
+                            .collect(Collectors.toList())
+        );
         return shopDTO;
     }
 
@@ -40,14 +46,11 @@ public class ShopDTO {
         return userIdentifier;
     }
     public List<ItemDTO> getItems() {
-        if(itemsDto == null){
-            return new ArrayList<>();
-        }
-        return itemsDto;
+        return items;
     }
 
     public void setItems(List<ItemDTO> itemsDto) {
-        this.itemsDto = itemsDto;
+        this.items = itemsDto;
     }
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;

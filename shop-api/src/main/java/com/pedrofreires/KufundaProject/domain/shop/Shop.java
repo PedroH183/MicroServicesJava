@@ -4,7 +4,6 @@ import com.pedrofreires.KufundaProject.domain.Item.Item;
 
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import javax.persistence.Id;
@@ -40,11 +39,11 @@ public class Shop {
         shop.setUserIdentifier(shopDTO.getUserIdentifier());
         shop.setCreated_at(shopDTO.getCreated_at());
 
-        shop.setItems((ArrayList<Item>) shopDTO
-            .getItems()
-            .stream()
-            .map(Item::convert)
-            .collect(Collectors.toList())
+        shop.setItems(shopDTO
+                        .getItems()
+                        .stream()
+                        .map(Item::convert)
+                        .collect(Collectors.toList())
         );
         return shop;
     }
@@ -64,7 +63,7 @@ public class Shop {
     public List<Item> getItems(){
         return items;
     }
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
     public void setCreated_at(Date created_at) {
