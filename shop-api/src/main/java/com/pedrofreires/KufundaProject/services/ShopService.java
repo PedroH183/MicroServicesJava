@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.pedrofreires.KufundaProject.domain.shop.Shop;
 import com.pedrofreires.KufundaProject.domain.shop.ShopDTO;
+import com.pedrofreires.KufundaProject.domain.shop.ShopReportDTO;
 import com.pedrofreires.KufundaProject.repositories.ShopRepository;
 
 
@@ -67,6 +68,19 @@ public class ShopService {
                 .stream()
                 .map(ShopDTO::convert)
                 .collect(Collectors.toList());
-        }
+    }
 
+    public List<ShopDTO> getShopsByFilter(Date dataInicio, Date dataFim, Float valorMinimo){
+
+        List<Shop> shops = shopRepository.getShopByFilters(dataInicio, dataFim, valorMinimo);
+
+        return shops
+                .stream()
+                .map(ShopDTO::convert)
+                .collect(Collectors.toList());
+    }
+
+    public ShopReportDTO getReportByDate(Date dataInicio, Date dataFim){
+        return shopRepository.getReportByDate(dataInicio, dataFim);
+    }
 }
