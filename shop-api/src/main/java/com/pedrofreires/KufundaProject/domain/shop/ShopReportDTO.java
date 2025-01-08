@@ -6,6 +6,12 @@ public class ShopReportDTO {
     private Double total;
     private Double mean;
 
+    public ShopReportDTO(Integer count, Double total, Double mean){
+        this.mean  = mean;
+        this.count = count;
+        this.total = total;
+    }
+
     public Integer getCount() {
         return count;
     }
