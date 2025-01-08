@@ -64,11 +64,11 @@ public class ShopControllers {
 
     @GetMapping("/shopping/report")
     public ShopReportDTO getReportDotByDate(
-        @RequestParam(name = "dataInicio", required = true)
-        @DateTimeFormat(pattern = "dd/MM/yyyy") Date dateInicio,
-        @RequestParam(name = "dataFim", required = true)
-        @DateTimeFormat(pattern = "dd/MM/yyyy") Date dateFim
+        @RequestParam(name = "dataInicio")
+        @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataInicio,
+        @RequestParam(name = "dataFim")
+        @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataFim
     ){
-        return shopService.getReportByDate(dateInicio, dateFim);
+        return shopService.getReportByDate(dataInicio, dataFim);
     }
 }
