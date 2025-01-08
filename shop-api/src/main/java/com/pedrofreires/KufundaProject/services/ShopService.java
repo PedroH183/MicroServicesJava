@@ -1,5 +1,6 @@
 package com.pedrofreires.KufundaProject.services;
 
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.pedrofreires.KufundaProject.domain.shop.Shop;
 import com.pedrofreires.KufundaProject.domain.shop.ShopDTO;
 import com.pedrofreires.KufundaProject.domain.shop.ShopReportDTO;
+import com.pedrofreires.KufundaProject.repositories.ReportRepositoryImpl;
 import com.pedrofreires.KufundaProject.repositories.ShopRepository;
 
 
@@ -19,6 +21,9 @@ public class ShopService {
 
     @Autowired
     private ShopRepository shopRepository;
+
+    @Autowired
+    private ReportRepositoryImpl reportRepositoryImpl;
 
     public List<ShopDTO> getAll(){
         return shopRepository
@@ -72,7 +77,7 @@ public class ShopService {
 
     public List<ShopDTO> getShopsByFilter(Date dataInicio, Date dataFim, Float valorMinimo){
 
-        List<Shop> shops = shopRepository.getShopByFilters(dataInicio, dataFim, valorMinimo);
+        List<Shop> shops = reportRepositoryImpl.getShopByFilters(dataInicio, dataFim, valorMinimo);
 
         return shops
                 .stream()
@@ -80,7 +85,13 @@ public class ShopService {
                 .collect(Collectors.toList());
     }
 
-    public ShopReportDTO getReportByDate(Date dataInicio, Date dataFim){
-        return shopRepository.getReportByDate(dataInicio, dataFim);
+    public ShopReportDTO getReportByDate(Date dateInicio, Date dateFim){
+        Object[] result = (Object[]) shopRepository.getReportByDate(dateInicio, dateFim);
+
+        int count = ((BigInteger) result[0]).intValue();
+        Double sum = result[1] != null ? ((Number) result[1]).doubleValue() : null;
+        Double avg = result[2] != null ? ((Number) result[2]).doubleValue() : null;
+
+        return new ShopReportDTO(count, sum, avg);
     }
 }
