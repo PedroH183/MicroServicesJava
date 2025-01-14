@@ -20,6 +20,7 @@ public interface ShopRepository extends JpaRepository<Shop, Long>{
 
     @Query(value = "select count(s.id), sum(s.total), avg(s.total) " +
                "from shopping.shop s " +
-               "where s.date between :dateInicio and :dateFim", nativeQuery = true)
-    public Object[] getReportByDate(@Param("dateInicio") Date dateInicio, @Param("dateFim") Date dateFim);
+               "where s.date between :dateInicio and :dateFim",
+       nativeQuery = true)
+    List<Object[]> getReportByDate(@Param("dateInicio") Date dateInicio, @Param("dateFim") Date dateFim);
 }

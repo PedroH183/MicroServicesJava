@@ -1,6 +1,5 @@
 package com.pedrofreires.KufundaProject.services;
 
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -86,12 +85,25 @@ public class ShopService {
     }
 
     public ShopReportDTO getReportByDate(Date dateInicio, Date dateFim){
-        Object[] result = (Object[]) shopRepository.getReportByDate(dateInicio, dateFim);
+        List<Object[]> result  = shopRepository.getReportByDate(dateInicio, dateFim);
 
-        int count = ((BigInteger) result[0]).intValue();
-        Double sum = result[1] != null ? ((Number) result[1]).doubleValue() : null;
-        Double avg = result[2] != null ? ((Number) result[2]).doubleValue() : null;
+        // Para deduzir que era uma lista de listas, bastou ver o prefixo L no inicio 
+        // do endereço printatdo
 
-        return new ShopReportDTO(count, sum, avg);
+        if(result == null){
+            System.out.println("Nenhum Registro foi encontrado !");
+            return null;
+        }
+        Object[] resultado = result.get(0);
+
+        Long totalRegistros =  ((Number) resultado[0]) != null ? ((Number) resultado[0]).longValue() : null;
+        Long somaTotal      =  ((Number) resultado[1]) != null ? ((Number) resultado[1]).longValue() : null;
+        Long mediaTotal     =  ((Number) resultado[2]) != null ? ((Number) resultado[2]).longValue() : null;
+
+        System.out.println("Total de registros: " + totalRegistros);
+        System.out.println("Soma total: " + somaTotal);
+        System.out.println("Média total: " + mediaTotal);
+
+        return new ShopReportDTO(totalRegistros, somaTotal, mediaTotal);
     }
 }
