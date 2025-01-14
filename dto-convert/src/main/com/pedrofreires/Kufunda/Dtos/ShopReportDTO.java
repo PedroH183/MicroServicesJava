@@ -1,5 +1,7 @@
 package com.pedrofreires.KufundaProject.domain.shop;
 
+import java.math.BigDecimal;
+
 public class ShopReportDTO {
     private Long count;
     private Long total;
