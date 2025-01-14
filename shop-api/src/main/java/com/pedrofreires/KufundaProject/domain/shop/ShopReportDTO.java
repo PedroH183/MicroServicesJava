@@ -1,33 +1,34 @@
 package com.pedrofreires.KufundaProject.domain.shop;
 
+import java.math.BigDecimal;
 
 public class ShopReportDTO {
-    private Integer count;
-    private Double total;
-    private Double mean;
+    private Long count;
+    private Long total;
+    private Long mean;
 
-    public ShopReportDTO(Integer count, Double total, Double mean){
+    public ShopReportDTO(Long count, Long total, Long mean){
         this.mean  = mean;
         this.count = count;
         this.total = total;
     }
 
-    public Integer getCount() {
+    public Long getCount() {
         return count;
     }
-    public Double getMean() {
+    public Long getMean() {
         return mean;
     }
-    public Double getTotal() {
+    public Long getTotal() {
         return total;
     }
-    public void setCount(Integer count) {
+    public void setCount(Long count) {
         this.count = count;
     }
-    public void setMean(Double mean) {
+    public void setMean(Long mean) {
         this.mean = mean;
     }
-    public void setTotal(Double total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 }
