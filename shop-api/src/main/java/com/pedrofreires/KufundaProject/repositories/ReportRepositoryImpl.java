@@ -27,8 +27,8 @@ public class ReportRepositoryImpl implements IReportRepository {
 
         StringBuilder s = new StringBuilder();
 
-        s.append("select s" );
-        s.append("from shops s" );
+        s.append("select s ");
+        s.append("from Shop s ");
         s.append("where s.date >= :dataInicio");
 
         if(dataFim != null){
