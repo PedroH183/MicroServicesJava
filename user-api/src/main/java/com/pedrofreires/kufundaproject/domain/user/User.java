@@ -1,4 +1,4 @@
-package com.pedrofreires.KufundaProject.domain.user;
+package com.pedrofreires.kufundaproject.domain.user;
 
 import java.util.Date;
 
@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import com.pedrofreires.converter.dtos.UserDTO;
 
 
 @Entity

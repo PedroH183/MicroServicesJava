@@ -1,1 +1,6 @@
-UserController.class
+com/pedrofreires/KufundaProject/controllers/UserController.class
+com/pedrofreires/KufundaProject/repositories/UserRepository.class
+com/pedrofreires/KufundaProject/App.class
+com/pedrofreires/KufundaProject/services/UserServices.class
+com/pedrofreires/KufundaProject/domain/user/UserDTO.class
+com/pedrofreires/KufundaProject/domain/user/User.class

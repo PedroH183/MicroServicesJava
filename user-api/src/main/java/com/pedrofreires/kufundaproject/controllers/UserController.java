@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pedrofreires.KufundaProject.domain.user.UserDTO;
-import com.pedrofreires.KufundaProject.services.UserServices;
+import com.pedrofreires.converter.dtos.UserDTO;
+import com.pedrofreires.kufundaproject.services.UserServices;
 
 
 @RestController

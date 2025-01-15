@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.pedrofreires.KufundaProject.domain.user.User;
-import com.pedrofreires.KufundaProject.domain.user.UserDTO;
-import com.pedrofreires.KufundaProject.repositories.UserRepository;
+import com.pedrofreires.converter.dtos.UserDTO;
+import com.pedrofreires.kufundaproject.domain.user.User;
+import com.pedrofreires.kufundaproject.repositories.UserRepository;
 
 
 @Service

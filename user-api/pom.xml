@@ -8,6 +8,14 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.0.RELEASE</version>
     </parent>
+    <profiles>
+        <profile>
+            <id>my-local-repo</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -28,6 +36,11 @@
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pedrofreires.converter.dtos</groupId>
+            <artifactId>shopping-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
