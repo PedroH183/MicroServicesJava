@@ -1,4 +1,4 @@
-package com.pedrofreires.KufundaProject;
+package com.pedrofreires.kufundaproject;
 
 
 import org.springframework.boot.SpringApplication;

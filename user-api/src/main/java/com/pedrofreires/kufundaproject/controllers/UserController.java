@@ -1,4 +1,4 @@
-package com.pedrofreires.KufundaProject.controllers;
+package com.pedrofreires.kufundaproject.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
