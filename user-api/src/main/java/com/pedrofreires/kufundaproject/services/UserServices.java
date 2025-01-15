@@ -1,4 +1,4 @@
-package com.pedrofreires.KufundaProject.services;
+package com.pedrofreires.kufundaproject.services;
 
 import java.util.List;
 import java.util.Optional;
