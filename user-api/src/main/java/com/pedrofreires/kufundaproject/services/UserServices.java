@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.pedrofreires.converter.dtos.UserDTO;
 import com.pedrofreires.kufundaproject.domain.user.User;
 import com.pedrofreires.kufundaproject.repositories.UserRepository;
+import com.pedrofreires.kufundaproject.domain.dtoConvert.DTOConvert;
 
 
 @Service
@@ -22,14 +23,14 @@ public class UserServices {
         Optional<User> user = userRepository.findById(id);
 
         if( !user.isEmpty() ){
-            return UserDTO.convert(user.get());
+            return DTOConvert.convert(user.get());
         }
         return null;
     }
 
     public UserDTO save(UserDTO userDTO){
         User user = userRepository.save(User.convert(userDTO));
-        return UserDTO.convert(user);
+        return DTOConvert.convert(user);
     }
 
     public Boolean delete(Long id){
@@ -45,7 +46,7 @@ public class UserServices {
         Optional<User> user = userRepository.findByCpf(cpf);
 
         if( user.isPresent() ){
-            return UserDTO.convert(user.get());
+            return DTOConvert.convert(user.get());
         }
         return null;
     }
@@ -55,7 +56,7 @@ public class UserServices {
 
         return users
             .stream()
-            .map(UserDTO::convert)
+            .map(DTOConvert::convert)
             .collect(Collectors.toList());
     }
 
@@ -63,7 +64,7 @@ public class UserServices {
         List<User> usuarios = userRepository.findAll();
         return usuarios
             .stream()
-            .map(UserDTO::convert)
+            .map(DTOConvert::convert)
             .collect(Collectors.toList());
     }
 }
