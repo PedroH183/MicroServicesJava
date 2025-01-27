@@ -1,6 +1,7 @@
 package com.pedrofreires.KufundaProject.domain.shop;
 
 import com.pedrofreires.KufundaProject.domain.Item.Item;
+import com.pedrofreires.converter.dtos.ShopDTO;
 
 import java.util.Date;
 import java.util.List;

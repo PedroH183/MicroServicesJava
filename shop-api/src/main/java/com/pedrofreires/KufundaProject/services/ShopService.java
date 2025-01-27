@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pedrofreires.KufundaProject.domain.shop.Shop;
-import com.pedrofreires.KufundaProject.domain.shop.ShopDTO;
-import com.pedrofreires.KufundaProject.domain.shop.ShopReportDTO;
+import com.pedrofreires.converter.dtos.ShopDTO;
+import com.pedrofreires.converter.dtos.ShopReportDTO;
 import com.pedrofreires.KufundaProject.repositories.ReportRepositoryImpl;
 import com.pedrofreires.KufundaProject.repositories.ShopRepository;
+
 
 
 @Service
