@@ -1,5 +1,6 @@
 package com.pedrofreires.kufundaproject.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,6 +30,7 @@ public class UserServices {
     }
 
     public UserDTO save(UserDTO userDTO){
+        userDTO.setDataCadastro(new Date());
         User user = userRepository.save(User.convert(userDTO));
         return DTOConvert.convert(user);
     }
@@ -54,17 +56,11 @@ public class UserServices {
     public List<UserDTO> queryByName(String name){
         List<User> users = userRepository.queryByNomeLike(name);
 
-        return users
-            .stream()
-            .map(DTOConvert::convert)
-            .collect(Collectors.toList());
+        return users.stream().map(DTOConvert::convert).collect(Collectors.toList());
     }
 
     public List<UserDTO> getAll() {
         List<User> usuarios = userRepository.findAll();
-        return usuarios
-            .stream()
-            .map(DTOConvert::convert)
-            .collect(Collectors.toList());
+        return usuarios.stream().map(DTOConvert::convert).collect(Collectors.toList());
     }
 }

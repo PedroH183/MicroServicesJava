@@ -19,17 +19,17 @@ public class UserController {
     @Autowired
     private UserServices userService;
 
-    @GetMapping("/user/")
+    @GetMapping("/user/all")
     public List<UserDTO> getUsers() {
         return  userService.getAll();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/search/{id}")
     UserDTO findById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
-    @PostMapping("/user")
+    @PostMapping("/user/create")
     UserDTO newUser(@RequestBody UserDTO userDTO) {
         return userService.save(userDTO);
     }
