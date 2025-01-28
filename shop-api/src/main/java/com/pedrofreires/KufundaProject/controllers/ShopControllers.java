@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pedrofreires.KufundaProject.domain.shop.ShopDTO;
+import com.pedrofreires.converter.dtos.ShopDTO;
+import com.pedrofreires.converter.dtos.ShopReportDTO;
 import com.pedrofreires.KufundaProject.services.ShopService;
-import com.pedrofreires.KufundaProject.domain.shop.ShopReportDTO;
 
 
 @RestController

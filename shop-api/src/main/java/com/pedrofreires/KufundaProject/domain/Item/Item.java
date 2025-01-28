@@ -1,7 +1,7 @@
 package com.pedrofreires.KufundaProject.domain.Item;
 
 import javax.persistence.Embeddable;
-
+import com.pedrofreires.converter.dtos.ItemDTO;
 
 @Embeddable
 public class Item {
@@ -15,7 +15,7 @@ public class Item {
         item.setProductIdentifier(itemDTO.getProductIdentifier());
         return item;
     }
-
+    
     public Float getPrice() {
         return price;
     }

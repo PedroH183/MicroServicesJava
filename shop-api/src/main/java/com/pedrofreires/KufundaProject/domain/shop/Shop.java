@@ -40,11 +40,11 @@ public class Shop {
         shop.setUserIdentifier(shopDTO.getUserIdentifier());
         shop.setCreated_at(shopDTO.getCreated_at());
 
-        shop.setItems(shopDTO
-                        .getItems()
-                        .stream()
-                        .map(Item::convert)
-                        .collect(Collectors.toList())
+        shop.setItems(
+                shopDTO.getItems()
+                    .stream()
+                    .map(Item::convert)
+                    .collect(Collectors.toList())
         );
         return shop;
     }
