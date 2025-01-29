@@ -15,7 +15,7 @@ import com.pedrofreires.kufundaproject.domain.dtoConvert.DTOConvert;
 
 
 @Service
-public class UserServices {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;

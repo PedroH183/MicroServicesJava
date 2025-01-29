@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pedrofreires.converter.dtos.UserDTO;
-import com.pedrofreires.kufundaproject.services.UserServices;
+import com.pedrofreires.kufundaproject.services.UserService;
 
 
 @RestController
 public class UserController {
     @Autowired
-    private UserServices userService;
+    private UserService userService;
 
     @GetMapping("/user/all")
     public List<UserDTO> getUsers() {
