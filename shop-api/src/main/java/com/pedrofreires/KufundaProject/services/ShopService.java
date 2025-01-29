@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.pedrofreires.KufundaProject.domain.dtoConvert.DTOConvert;
 import com.pedrofreires.KufundaProject.domain.shop.Shop;
+import com.pedrofreires.converter.dtos.ItemDTO;
 import com.pedrofreires.converter.dtos.ShopDTO;
 import com.pedrofreires.converter.dtos.ShopReportDTO;
-import com.pedrofreires.KufundaProject.repositories.ReportRepositoryImpl;
+import com.pedrofreires.KufundaProject.services.UserService;
+import com.pedrofreires.KufundaProject.services.ProductService;
 import com.pedrofreires.KufundaProject.repositories.ShopRepository;
-
+import com.pedrofreires.KufundaProject.repositories.ReportRepositoryImpl;
 
 
 @Service
@@ -22,6 +24,12 @@ public class ShopService {
 
     @Autowired
     private ShopRepository shopRepository;
+
+    @Autowired
+    private ProductService productService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private ReportRepositoryImpl reportRepositoryImpl;
@@ -54,17 +62,39 @@ public class ShopService {
     public ShopDTO save(ShopDTO shopDto){
         // calculo do total dos itens deve ser feito aqui !
 
+        if(userService.getUserByCpf(shopDto.getUserIdentifier()) == null){
+            return null;
+        }
+        if(!validateProduto(shopDto.getItems())){
+            return null;
+        }
         shopDto.setTotal((float) 0);
-        shopDto.setTotal(shopDto
-                            .getItems()
-                            .stream()
-                            .map(item -> item.getPrice())
-                            .reduce((float) 0, Float::sum)
+        shopDto.setTotal(
+            shopDto
+                .getItems()
+                .stream()
+                .map(item -> item.getPrice())
+                .reduce((float) 0, Float::sum)
         );
         Shop shop = Shop.convert(shopDto);
         shop.setCreated_at(new Date());
 
         return DTOConvert.convert(shopRepository.save(shop));
+    }
+
+    public boolean validateProduto(List<ItemDTO> items){
+
+        for(ItemDTO itemDTO : items){
+            Float price = productService.getProductByIndentifier(
+                itemDTO.getProductIdentifier()
+            ).getPreco();
+
+            if(price == null){
+                return false;
+            }
+            itemDTO.setPrice(price);
+        }
+        return true;
     }
 
     public List<ShopDTO> getByDate(ShopDTO shopDTO) {
