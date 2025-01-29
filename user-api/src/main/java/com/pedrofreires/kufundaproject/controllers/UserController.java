@@ -34,7 +34,7 @@ public class UserController {
         return userService.save(userDTO);
     }
 
-    @GetMapping("/user/{cpf}")
+    @GetMapping("/user/cpf/{cpf}")
     UserDTO findByCpf(@PathVariable String cpf) {
         return userService.findByCpf(cpf);
     }
@@ -44,7 +44,7 @@ public class UserController {
         return userService.delete(id);
     }
 
-    @GetMapping("/user/search")
+    @GetMapping("/user/search/name")
         public List<UserDTO> queryByName(
             @RequestParam(name="nome", required = true) String nome){
 
